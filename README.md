@@ -1,4 +1,4 @@
-# ðŸŽ¬ Movie Explorer
+# Movie Explorer
 
 A beautiful, responsive movie search application built with React that lets you discover, explore, and save your favorite movies. Features a sleek mobile-first design with both mobile and desktop viewing modes.
 
@@ -6,17 +6,17 @@ A beautiful, responsive movie search application built with React that lets you 
 ![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
-## âœ¨ Features
+## Features
 
-- ðŸ” **Real-time Movie Search** - Search through thousands of movies using the OMDB API
-- ðŸ“± **Responsive Design** - Beautiful mobile and desktop layouts with smooth transitions
-- â¤ï¸ **Favorites System** - Save and manage your favorite movies locally
-- ðŸŽ¨ **Modern UI** - Gradient designs, smooth animations, and intuitive navigation
-- ðŸ“– **Detailed Movie Info** - View comprehensive details including plot, cast, ratings, and more
-- ðŸ”„ **View Toggle** - Switch between mobile and desktop views instantly
-- âš¡ **Fast & Lightweight** - Optimized performance with React hooks and efficient state management
+- **Real-time Movie Search** - Search through thousands of movies using the OMDB API
+- **Responsive Design** - Beautiful mobile and desktop layouts with smooth transitions
+- **Favorites System** - Save and manage your favorite movies locally
+- **Modern UI** - Gradient designs, smooth animations, and intuitive navigation
+- **Detailed Movie Info** - View comprehensive details including plot, cast, ratings, and more
+- **View Toggle** - Switch between mobile and desktop views instantly
+- **Fast & Lightweight** - Optimized performance with React hooks and efficient state management
 
-## ðŸš€ Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -53,43 +53,43 @@ A beautiful, responsive movie search application built with React that lets you 
    
    Navigate to `http://localhost:5173` (or the port shown in your terminal)
 
-## ðŸ“ Project Structure
+## Project Structure
 
 ```
 movie-explorer/
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ components/
-â”‚   â”‚   â”œâ”€â”€ mobile/              # Mobile-specific screens
-â”‚   â”‚   â”‚   â”œâ”€â”€ MobileHomeScreen.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ MobileDetailsScreen.jsx
-â”‚   â”‚   â”‚   â””â”€â”€ MobileFavoritesScreen.jsx
-â”‚   â”‚   â”œâ”€â”€ desktop/             # Desktop-specific screens
-â”‚   â”‚   â”‚   â”œâ”€â”€ DesktopHomeScreen.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ DesktopDetailsScreen.jsx
-â”‚   â”‚   â”‚   â””â”€â”€ DesktopFavoritesScreen.jsx
-â”‚   â”‚   â”œâ”€â”€ shared/              # Reusable components
-â”‚   â”‚   â”‚   â”œâ”€â”€ MovieCard.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ SearchBar.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ Header.jsx
-â”‚   â”‚   â”‚   â””â”€â”€ EmptyState.jsx
-â”‚   â”‚   â””â”€â”€ layout/              # Layout components
-â”‚   â”‚       â””â”€â”€ ViewToggle.jsx
-â”‚   â”œâ”€â”€ services/                # API services
-â”‚   â”‚   â””â”€â”€ api.js
-â”‚   â”œâ”€â”€ hooks/                   # Custom React hooks
-â”‚   â”‚   â”œâ”€â”€ useMovies.js
-â”‚   â”‚   â””â”€â”€ useFavorites.js
-â”‚   â”œâ”€â”€ utils/                   # Utilities and constants
-â”‚   â”‚   â””â”€â”€ constants.js
-â”‚   â”œâ”€â”€ App.jsx                  # Main app component
-â”‚   â”œâ”€â”€ main.jsx                 # Entry point
-â”‚   â””â”€â”€ index.css                # Global styles
-â”œâ”€â”€ index.html
-â”œâ”€â”€ package.json
-â””â”€â”€ README.md
+├── src/
+│   ├── components/
+│   │   ├── mobile/              # Mobile-specific screens
+│   │   │   ├── MobileHomeScreen.jsx
+│   │   │   ├── MobileDetailsScreen.jsx
+│   │   │   └── MobileFavoritesScreen.jsx
+│   │   ├── desktop/             # Desktop-specific screens
+│   │   │   ├── DesktopHomeScreen.jsx
+│   │   │   ├── DesktopDetailsScreen.jsx
+│   │   │   └── DesktopFavoritesScreen.jsx
+│   │   ├── shared/              # Reusable components
+│   │   │   ├── MovieCard.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   ├── Header.jsx
+│   │   │   └── EmptyState.jsx
+│   │   └── layout/              # Layout components
+│   │       └── ViewToggle.jsx
+│   ├── services/                # API services
+│   │   └── api.js
+│   ├── hooks/                   # Custom React hooks
+│   │   ├── useMovies.js
+│   │   └── useFavorites.js
+│   ├── utils/                   # Utilities and constants
+│   │   └── constants.js
+│   ├── App.jsx                  # Main app component
+│   ├── main.jsx                 # Entry point
+│   └── index.css                # Global styles
+├── index.html
+├── package.json
+└── README.md
 ```
 
-## ðŸŽ¯ Key Components
+## Key Components
 
 ### **Custom Hooks**
 
@@ -131,7 +131,7 @@ Centralized API configuration:
 - **Header** - Navigation header with favorites counter
 - **EmptyState** - Contextual empty state messages
 
-## ðŸŽ¨ Design Features
+## Design Features
 
 - **Gradient Backgrounds** - Purple to blue gradient header
 - **Smooth Animations** - Card hover effects and transitions
@@ -140,7 +140,7 @@ Centralized API configuration:
 - **Empty States** - Helpful messages with icons
 - **Responsive Cards** - Adaptive movie cards with fallback images
 
-## ðŸ› ï¸ Technologies Used
+## Technologies Used
 
 - **React 18** - Modern React with hooks
 - **Vite** - Lightning-fast build tool
@@ -148,7 +148,7 @@ Centralized API configuration:
 - **OMDB API** - Movie database API
 - **Custom CSS** - No framework dependencies
 
-## ðŸ“š Usage Guide
+## Usage Guide
 
 ### Searching for Movies
 
@@ -161,7 +161,7 @@ Centralized API configuration:
 
 1. Open a movie's detail page
 2. Click the "Add to Favorites" button
-3. Access favorites via the heart icon (â¤ï¸) in the header
+3. Access favorites via the heart icon (❤️) in the header
 4. Remove favorites by clicking "Remove from Favorites"
 
 ### Switching Views
@@ -169,7 +169,7 @@ Centralized API configuration:
 - Use the view toggle buttons (top-right) to switch between Mobile and Desktop modes
 - Perfect for testing responsive designs or personal preference
 
-## ðŸ”§ Configuration
+## Configuration
 
 ### API Configuration
 
@@ -187,7 +187,7 @@ Edit `src/utils/constants.js` to modify:
 - Empty state messages
 - Default configurations
 
-## ðŸ¤ Contributing
+## Contributing
 
 Contributions are welcome! Here's how you can help:
 
@@ -197,7 +197,7 @@ Contributions are welcome! Here's how you can help:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## ðŸ“ Future Enhancements
+## Future Enhancements
 
 - [ ] Add movie trailers and videos
 - [ ] Implement advanced filtering (genre, year, rating)
@@ -208,23 +208,23 @@ Contributions are welcome! Here's how you can help:
 - [ ] Add social sharing features
 - [ ] Create watchlist functionality
 
-## ðŸ› Known Issues
+## Known Issues
 
 - Favorites are stored locally (cleared on browser cache clear)
 - API rate limiting may occur with excessive searches
 - Some older movies may have incomplete data
 
-## ðŸ“„ License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## ðŸ™ Acknowledgments
+## Acknowledgments
 
 - [OMDB API](http://www.omdbapi.com/) for providing the movie database
 - [Lucide Icons](https://lucide.dev/) for the beautiful icon set
 - The React community for excellent documentation and support
 
-## ðŸ“§ Contact
+## Contact
 
 Susan - [@susanKm_](https://twitter.com/susanKm_)
 
@@ -233,7 +233,7 @@ Project Link: [https://github.com/susan-kimemia/movie-explorer](https://github.c
 ---
 
 <div align="center">
-  Made with â¤ï¸ by Susan
+  Made with ❤️ by Susan
   <br>
-  â­ Star this repo if you find it helpful!
+  ⭐️ Star this repo if you find it helpful!
 </div>
