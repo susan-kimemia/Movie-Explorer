@@ -2,48 +2,60 @@
 // Mobile version of the favorites screen
 
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
-import MovieCard from '../shared/MovieCard';
-import EmptyState from '../shared/EmptyState';
-import { EMPTY_STATES } from '../../utils/constants';
+import { ArrowLeft, Heart, Film } from 'lucide-react';
 
-const MobileFavoritesScreen = ({ 
+const MobileFavoritesScreen = ({
   favorites,
   onBack,
   onMovieClick
 }) => {
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="favorites-screen">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b">
-        <h1 className="text-2xl font-bold">Your Favorites</h1>
-        <button 
-          onClick={onBack}
-          className="text-blue-600 hover:bg-blue-50 px-3 py-2 rounded"
-        >
-          <ArrowLeft className="inline w-4 h-4 mr-1" />
+      <div className="favorites-header">
+        <h1>Your Favorites</h1>
+        <button className="back-button" onClick={onBack}>
+          <ArrowLeft size={16} />
           Back
         </button>
       </div>
 
       {/* Favorites List */}
-      <div className="flex-1 overflow-auto p-3">
+      <div className="favorites-content">
         {favorites.length === 0 ? (
-          <EmptyState 
-            type="no-favorites"
-            title={EMPTY_STATES.NO_FAVORITES.title}
-            subtitle={EMPTY_STATES.NO_FAVORITES.subtitle}
-            size="small"
-          />
+          <div className="empty-state">
+            <div className="empty-state-icon">
+              <Heart size={64} />
+            </div>
+            <div className="empty-state-title">No Favorites Yet</div>
+            <div className="empty-state-subtitle">
+              Add movies to your favorites to see them here
+            </div>
+          </div>
         ) : (
-          <div className="grid grid-cols-2 gap-3">
-            {favorites.map(movie => (
-              <MovieCard 
+          <div className="movies-grid">
+            {favorites.map((movie) => (
+              <div
                 key={movie.imdbID}
-                movie={movie}
+                className="movie-card"
                 onClick={() => onMovieClick(movie)}
-                size="medium"
-              />
+              >
+                <div className="movie-poster">
+                  {movie.Poster && movie.Poster !== 'N/A' ? (
+                    <img src={movie.Poster} alt={movie.Title} />
+                  ) : (
+                    <div className="poster-placeholder">
+                      <Film size={48} />
+                    </div>
+                  )}
+                </div>
+                <div className="movie-info">
+                  <div className="movie-title">{movie.Title}</div>
+                  <div className="movie-meta">
+                    <span className="movie-year">{movie.Year}</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         )}

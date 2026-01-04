@@ -2,13 +2,9 @@
 // Mobile version of the home screen
 
 import React from 'react';
-import Header from '../shared/Header';
-import SearchBar from '../shared/SearchBar';
-import MovieCard from '../shared/MovieCard';
-import EmptyState from '../shared/EmptyState';
-import { EMPTY_STATES } from '../../utils/constants';
+import { Heart, Search, Film } from 'lucide-react';
 
-const MobileHomeScreen = ({ 
+const MobileHomeScreen = ({
   movies,
   searchQuery,
   setSearchQuery,
@@ -20,76 +16,112 @@ const MobileHomeScreen = ({
   error,
   hasSearched
 }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch();
+  };
+
   return (
-    <div className="flex flex-col h-screen bg-white">
+    <div className="mobile-home-screen">
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-white">
-        <Header 
-          onFavoritesClick={onFavoritesClick}
-          favoritesCount={favoritesCount}
-          size="small"
-        />
+      <div className="mobile-header">
+        <h1>Movie Explorer</h1>
+        <button className="favorites-button" onClick={onFavoritesClick}>
+          <Heart size={16} />
+          <span className="favorites-badge">{favoritesCount}</span>
+        </button>
       </div>
 
       {/* Search Bar */}
-      <div className="sticky top-14 z-10 bg-white p-2">
-        <SearchBar 
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          onSearch={onSearch}
-          loading={loading}
-          size="small"
-        />
+      <div className="search-bar-container">
+        <form className="search-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="search-input"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search for movies..."
+          />
+          <button 
+            type="submit" 
+            className="search-button"
+            disabled={loading}
+          >
+            {loading ? '...' : 'Search'}
+          </button>
+        </form>
       </div>
 
       {/* Results */}
-      <div className="flex-1 overflow-y-auto p-3">
+      <div className="mobile-content">
         {/* Loading State */}
         {loading && (
-          <div className="flex items-center justify-center h-full">
-            <div className="text-gray-400">Loading...</div>
+          <div className="loading-state">
+            <div className="loading-spinner"></div>
           </div>
         )}
 
         {/* Error State */}
         {error && !loading && (
-          <EmptyState 
-            type="no-results"
-            title={error}
-            size="small"
-          />
+          <div className="empty-state">
+            <div className="empty-state-icon">
+              <Film size={64} />
+            </div>
+            <div className="empty-state-title">{error}</div>
+          </div>
         )}
 
         {/* Initial State - No Search */}
         {!loading && !error && !hasSearched && (
-          <EmptyState 
-            type="no-search"
-            title={EMPTY_STATES.NO_SEARCH.title}
-            subtitle={EMPTY_STATES.NO_SEARCH.subtitle}
-            size="small"
-          />
+          <div className="empty-state">
+            <div className="empty-state-icon">
+              <Search size={64} />
+            </div>
+            <div className="empty-state-title">Search for Movies</div>
+            <div className="empty-state-subtitle">
+              Enter a movie title to get started
+            </div>
+          </div>
         )}
 
         {/* Empty Results */}
         {!loading && !error && hasSearched && movies.length === 0 && (
-          <EmptyState 
-            type="no-results"
-            title={EMPTY_STATES.NO_RESULTS.title}
-            subtitle={EMPTY_STATES.NO_RESULTS.subtitle}
-            size="small"
-          />
+          <div className="empty-state">
+            <div className="empty-state-icon">
+              <Film size={64} />
+            </div>
+            <div className="empty-state-title">No Movies Found</div>
+            <div className="empty-state-subtitle">
+              Try searching for something else
+            </div>
+          </div>
         )}
 
         {/* Movies Grid */}
         {!loading && movies.length > 0 && (
-          <div className="grid grid-cols-2 gap-3">
-            {movies.map(movie => (
-              <MovieCard 
-		key={`${movie.imdbID}-${index}`}
-                movie={movie}
+          <div className="movies-grid">
+            {movies.map((movie, index) => (
+              <div
+                key={`${movie.imdbID}-${index}`}
+                className="movie-card"
                 onClick={() => onMovieClick(movie.imdbID)}
-                size="medium"
-              />
+              >
+                <div className="movie-poster">
+                  {movie.Poster && movie.Poster !== 'N/A' ? (
+                    <img src={movie.Poster} alt={movie.Title} />
+                  ) : (
+                    <div className="poster-placeholder">
+                      <Film size={48} />
+                    </div>
+                  )}
+                </div>
+                <div className="movie-info">
+                  <div className="movie-title">{movie.Title}</div>
+                  <div className="movie-meta">
+                    <span className="movie-year">{movie.Year}</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         )}
