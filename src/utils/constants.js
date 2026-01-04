@@ -2,7 +2,7 @@
 // Application constants and configuration
 
 // OMDb API Configuration
-export const API_KEY = '6aaob314';
+export const API_KEY = 'e73440ff';
 export const API_URL = 'https://www.omdbapi.com/';
 
 // Screen names for navigation

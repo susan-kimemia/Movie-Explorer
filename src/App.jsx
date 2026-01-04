@@ -154,20 +154,20 @@ const App = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div className="app-container">
       {/* View Mode Toggle */}
       <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
 
       {/* Mobile View */}
       {viewMode === VIEW_MODES.MOBILE && (
-        <div className="w-full max-w-md h-full max-h-[800px] bg-white rounded-2xl shadow-2xl overflow-hidden border-8 border-gray-800">
+        <div className="mobile-view screen">
           {renderMobileScreen()}
         </div>
       )}
 
       {/* Desktop View */}
       {viewMode === VIEW_MODES.DESKTOP && (
-        <div className="w-full max-w-7xl h-full max-h-[900px] bg-white rounded-lg shadow-2xl overflow-hidden">
+        <div className="desktop-view screen">
           {renderDesktopScreen()}
         </div>
       )}

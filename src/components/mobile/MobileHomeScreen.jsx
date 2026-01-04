@@ -21,25 +21,29 @@ const MobileHomeScreen = ({
   hasSearched
 }) => {
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-screen bg-white">
       {/* Header */}
-      <Header 
-        onFavoritesClick={onFavoritesClick}
-        favoritesCount={favoritesCount}
-        size="small"
-      />
+      <div className="sticky top-0 z-10 bg-white">
+        <Header 
+          onFavoritesClick={onFavoritesClick}
+          favoritesCount={favoritesCount}
+          size="small"
+        />
+      </div>
 
       {/* Search Bar */}
-      <SearchBar 
-        value={searchQuery}
-        onChange={setSearchQuery}
-        onSearch={onSearch}
-        loading={loading}
-        size="small"
-      />
+      <div className="sticky top-14 z-10 bg-white p-2">
+        <SearchBar 
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onSearch={onSearch}
+          loading={loading}
+          size="small"
+        />
+      </div>
 
       {/* Results */}
-      <div className="flex-1 overflow-auto p-3">
+      <div className="flex-1 overflow-y-auto p-3">
         {/* Loading State */}
         {loading && (
           <div className="flex items-center justify-center h-full">
@@ -81,7 +85,7 @@ const MobileHomeScreen = ({
           <div className="grid grid-cols-2 gap-3">
             {movies.map(movie => (
               <MovieCard 
-                key={movie.imdbID}
+		key={`${movie.imdbID}-${index}`}
                 movie={movie}
                 onClick={() => onMovieClick(movie.imdbID)}
                 size="medium"
