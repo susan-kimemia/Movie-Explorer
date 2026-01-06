@@ -2,8 +2,8 @@
 // Application constants and configuration
 
 // OMDb API Configuration
-export const API_KEY = 'e73440ff';
-export const API_URL = 'https://www.omdbapi.com/';
+export const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+export const API_URL = import.meta.env.VITE_OMDB_API_URL;
 
 // Screen names for navigation
 export const SCREENS = {
